@@ -1,0 +1,1 @@
+rg = ["scooperman", "westus"]
