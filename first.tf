@@ -2,8 +2,8 @@ provider "azurerm" {
   features {}
 }
 resource "azurerm_resource_group" "example"{
-    name = "myrg"
-    location = "eastus"
+    name = var.rg[0]
+    location = var.rg[1]
 }
 resource "azurerm_storage_account" "example" {
   name                     = "mystorageacc10"
