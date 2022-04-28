@@ -13,12 +13,18 @@ terraform {
 resource "azurerm_resource_group" "example" {
   name     = "rg-vm"
   location = "westus"
+  tags {
+    environment = "dev"
+  }
 }
 resource "azurerm_virtual_network" "example" {
   name                = "rg-network"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
   address_space       = ["10.0.0.0/16"]
+   tags {
+    environment = "dev"
+  }
 }
 resource "azurerm_subnet" "example" {
   name                 = "rg-subnet"
@@ -76,6 +82,9 @@ resource "azurerm_linux_virtual_machine" "example" {
     user = self.admin_username
     password = self.admin_password
     host = self.public_ip_address
+  }
+   tags {
+    environment = "dev"
   }
 }
 output "publicip" {
