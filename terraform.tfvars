@@ -1,1 +1,0 @@
-rg = ["scooperman", "westus"]
